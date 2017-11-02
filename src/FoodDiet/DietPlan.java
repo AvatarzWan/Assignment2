@@ -46,5 +46,42 @@ public class DietPlan {
         }
         return null;
     }
+    
+    public double totalCalorie(){
+        double total=0.0;
+        for (int i = 0; i < count; i++){
+            total +=foodItem[i].calorieConsumed();
+        }
+        return total;
+            
+    }
+    
+    public FoodItem highestCalorie(){
+        FoodItem highest = foodItem[0];
+        for (int i = 1; i < count; i++){
+            if (foodItem[i].calorieConsumed()>highest.calorieConsumed())
+                highest= foodItem[i];
+        }
+        return highest;
+    }
+    
+    public String keyFoodItem (String keyword){
+        String keyfood = "Matching food : \n";
+        for (int i = 0; i < count; i++){
+            if (foodItem[i].getName().toLowerCase().contains(keyword.toLowerCase()))
+                keyfood+=foodItem[i].toString() + " \n";
+        }
+        return keyfood;
+    }
+    
+    public  FoodItem [] searchMeal (String InMealType){
+        FoodItem [] mealArray = new FoodItem [count];
+        for (int i = 0 ; i < count; i++){
+            if (foodItem[i].getMealType().equalsIgnoreCase(InMealType))
+               mealArray[i]=foodItem[i];
+        }
+        return mealArray;
+    }
+    
 }
 
