@@ -83,5 +83,15 @@ public class DietPlan {
         return mealArray;
     }
     
+    public void remove(String removeFood){
+       
+        for (int i = 0; i < count; i++){
+            if (foodItem[i].getName().equalsIgnoreCase(removeFood)){
+                if (foodItem[i+1].getName().equalsIgnoreCase(removeFood)){
+                    foodItem[i].setName(foodItem[i+1].getName());
+                }
+            }
+    }
+}
 }
 
